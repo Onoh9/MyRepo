@@ -1,0 +1,97 @@
+
+        while (true){
+
+            System.out.println("START GAME #" + gameNum);
+            int myNumber = rng.nextInt(13) + 1;
+            System.out.println(myNumber);
+            String myCard = null;
+            if (myNumber == 1){
+                myCard = "ACE";
+            }
+            else if(myNumber >= 2 && myNumber <= 10){
+                myCard = String.valueOf(myNumber);
+            }
+            else if (myNumber == 11){
+                myCard = "JACK";
+            }
+            else if (myNumber == 12){
+                myCard = "QUEEN";
+            }
+            else if (myNumber == 13){
+                myCard = "KING";
+            }
+            System.out.println("Your card is a " + myCard + "!");
+            myHand += myNumber;
+            System.out.println("Your hand is: " + myHand);
+            menu();
+            System.out.println("Choose an option: ");
+            int option = scnr.nextInt();
+
+
+            switch (option){
+
+                case 1:
+
+                    while (myHand < 21){
+                        break;
+                    }
+                    if (myHand == 21){
+                        System.out.println("You win!");
+                        numPWins++;
+                        gameNum++;
+                    }
+                    else if (myHand > 21){
+                        System.out.println("Dealer wins!");
+                        numDWins++;
+                        gameNum++;
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("Dealers hand: " + dealerHand);
+                    System.out.println("Your hand: " + myHand);
+                    if ((myHand < dealerHand && dealerHand != 21) || (myHand == 21 && myHand != dealerHand)){
+                        System.out.println("You win!");
+                        numPWins++;
+                        gameNum++;
+
+                    }
+                    else if (myHand == dealerHand){
+                        System.out.println("It's a tie! No one wins.");
+                        numTies++;
+                        gameNum++;
+                    }
+                    else{
+                        System.out.println("Dealer wins!");
+                        numDWins++;
+                        gameNum++;
+                    }
+                    break;
+                case 3:
+                    System.out.println("Number of Player wins: " + numPWins);
+                    System.out.println("Number of Dealer wins: " + numDWins);
+                    System.out.println("Number of tied games: " + numTies);
+                    System.out.println("Number of games played: " + gameNum);
+                    percentPWins = (numPWins/gameNum)*100;
+                    System.out.println("Percentage of Player wins: " + percentPWins);
+                    break;
+                case 4:
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid input!");
+                    System.out.println("Please enter an integer value between 1 and 4.");
+                    break;
+            }
+        }
+
+    }
+    public static void menu(){
+        System.out.println("1. Get another card");
+        System.out.println("2. Hold hand");
+        System.out.println("3. Print statistics");
+        System.out.println("4. Exit");
+    }
+
+}
+int dealerHand = rng.nextInt(11) + 16;

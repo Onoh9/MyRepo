@@ -1,0 +1,83 @@
+while true
+sout start game
+    gives first number
+    menu
+    choose option
+    switch case
+        1
+        while hand is less than 21
+            gives number / gives card
+            gives hand
+            gives menu
+            choose option
+            break;
+        once hand is greater or equal to 21, breaks out of while loop
+        if hand is equal to 21,
+            you win
+            num player wins++
+            gameNum++
+        else if your hand is greater than 21,
+            you lose
+            num dealer wins++
+            gameNum++
+        break;
+        2
+            sout dealers hand:
+            sout your hand
+            if (your hand is less than dealers hand && dealers hand =/= 21) or (your hand == 21 && your hand =/= dealers hand)
+                you win
+                num player wins++
+                gameNum++
+            else if your hand == dealers hand
+                its a tie, no one wins
+                num of tie games++
+                gameNum++
+            else
+                dealer wins
+                num dealer wins++
+                gameNum++
+            break;
+        3
+            sout num player wins
+            sout num dealer wins
+            sout num of tie games
+            sout num of games played
+            double percent of player wins = ( num player wins / gameNum ) * 100
+            sout percent of player wins
+            break;
+        4
+            exit
+        default
+            sout Innvalid input!
+            sout Please enter an integer value between 1 and 4.
+            break;
+
+
+
+                        myNumber = rng.nextInt(13) + 1;
+                        myCard = null;
+                        if (myNumber == 1){
+                            myCard = "ACE";
+                        }
+                        else if(myNumber >= 2 && myNumber <= 10){
+                            myCard = String.valueOf(myNumber);
+                        }
+                        else if (myNumber == 11){
+                            myCard = "JACK";
+                        }
+                        else if (myNumber == 12){
+                            myCard = "QUEEN";
+                        }
+                        else if (myNumber == 13){
+                            myCard = "KING";
+                        }
+                        System.out.println("Your card is a " + myCard + "!");
+                        myHand += myNumber;
+                        System.out.println("Your hand is: " + myHand);
+                        menu();
+                        System.out.println("Choose an option: ");
+                        option = scnr.nextInt();
+
+
+                        /*myHand < dealerHand && dealerHand > 21) || (myHand == 21 && myHand != dealerHand) || (myHand > dealerHand && dealerHand < 21)) { //if (your hand is less than dealers hand && dealers hand =/= 21) or (your hand == 21 && your hand =/= dealers hand) you win
+                        */
